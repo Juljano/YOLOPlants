@@ -1,0 +1,63 @@
+
+*.log
+*.tmp
+*.png
+*.jpg
+*.backup
+
+.venv
+controllers/Testbilder
+
+# YOLO-Modell
+controllers/Rosbot-Controller/*.pt
+
+# =========================
+# VIRTUAL ENVIRONMENTS
+# =========================
+venv/
+.venv/
+env/
+ENV/
+
+# =========================
+# PYTHON CACHE
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# =========================
+# PYTORCH / TORCH CACHE
+# =========================
+*.pt
+*.pth
+*.ckpt
+
+# =========================
+# CUDA / GPU TEMP FILES
+# =========================
+*.npy
+*.npz
+
+# =========================
+# LOGS / OUTPUTS
+# =========================
+logs/
+runs/
+outputs/
+results/
+
+# =========================
+# SYSTEM / IDE
+# =========================
+.idea/
+.DS_Store
+
+# =========================
+# LARGE DATASETS
+# =========================
+Datasets/
+data/
+images/
+labels/
