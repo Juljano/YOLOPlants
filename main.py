@@ -1,9 +1,9 @@
 from ultralytics import YOLO
 
-model = YOLO("yolov8s.pt")
+model = YOLO("yolov8n.pt")
 
-result = model("/home/janosch/Pictures/JuliaUndIch.jpeg", conf=0.60)
+model.train(data="data.yaml",epochs=50,imgsz=320)
 
-result[0].show()
-print(result)
 
+
+model(r"C:/Users/jml/Projekte/YOLOPlants/Test-images/plant-pot.jpg", show=True)

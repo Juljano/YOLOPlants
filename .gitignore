@@ -4,12 +4,11 @@
 *.png
 *.jpg
 *.backup
-
+*.yaml
 .venv
-controllers/Testbilder
 
 # YOLO-Modell
-controllers/Rosbot-Controller/*.pt
+*.pt
 
 # =========================
 # VIRTUAL ENVIRONMENTS
@@ -57,7 +56,10 @@ results/
 # =========================
 # LARGE DATASETS
 # =========================
-Datasets/
+datasets/
 data/
 images/
 labels/
+Test-images/
+dataset/val/labels.cache
+dataset/train/labels.cache
