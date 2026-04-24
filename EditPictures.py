@@ -12,7 +12,7 @@ transform = A.Compose([
     A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.1, rotate_limit=15, p=0.5),
 ])
 
-input_folder = r"C:\Users\jml\Projekte\YOLOPlants\Test-images"
+input_folder = r"C:\Users\jml\Desktop\images"
 output_folder = "edited_images"
 os.makedirs(output_folder, exist_ok=True)
 
