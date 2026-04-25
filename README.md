@@ -18,7 +18,7 @@ Starten Sie das Programm mit:
 ```bash
 python3 Main.py
 ``` 
-Das Skript verwendet ein trainiertes YOLO-Modell, um Pflanzen und Blumentöpfe in Bildern zu erkennen.
+Das Skript verwendet ein von mir trainiertes YOLO-Modell, um Pflanzen und Blumentöpfe in Bildern zu erkennen.
 
 In der GUI können Sie eigene Bilder laden.
 Das Modell analysiert diese Bilder und markiert erkannte Pflanzen und Blumentöpfe mit Bounding Boxes.
