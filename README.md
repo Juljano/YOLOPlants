@@ -23,7 +23,9 @@ Das Skript verwendet ein trainiertes YOLO-Modell, um Pflanzen und Blumentöpfe i
 In der GUI können Sie eigene Bilder laden.
 Das Modell analysiert diese Bilder und markiert erkannte Pflanzen und Blumentöpfe mit Bounding Boxes.
 
+![Ein Foto von der Software](https://i.postimg.cc/J4j0HWwq/YOLOPlant.png)
 
+---
 
 ### Hinweis
 - Das Modell basiert auf dem YOLO-Framework.
