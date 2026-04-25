@@ -8,7 +8,7 @@
 .venv
 
 # YOLO-Modell
-*.pt
+#*.pt
 
 # =========================
 # VIRTUAL ENVIRONMENTS
@@ -29,7 +29,6 @@ __pycache__/
 # =========================
 # PYTORCH / TORCH CACHE
 # =========================
-*.pt
 *.pth
 *.ckpt
 
