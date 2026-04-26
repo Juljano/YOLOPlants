@@ -6,7 +6,7 @@ In diesem Repository habe ich ein YOLO-Modell trainiert, um Pflanzen zu erkennen
 Um das Modell zu verwenden, müssen Sie die folgenden Schritte ausführen:
 
 1. Klonen Sie das Repository:
-   ```bash
+```bash
    git clone https://github.com/Juljano/YOLOPlants.git
     ```
 2. Installieren Sie die erforderlichen Abhängigkeiten:
