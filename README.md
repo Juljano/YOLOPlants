@@ -8,7 +8,7 @@ Um das Modell zu verwenden, müssen Sie die folgenden Schritte ausführen:
 1. Klonen Sie das Repository:
 ```bash
    git clone https://github.com/Juljano/YOLOPlants.git
-    ```
+```
 2. Installieren Sie die erforderlichen Abhängigkeiten:
 ```bash
    pip install -r requirements.txt
