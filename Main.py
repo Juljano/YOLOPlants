@@ -14,6 +14,7 @@ class Main:
         self.panel = tkinter.Label(self.tk, bg="gray")
         self.panel.pack(padx=20, pady=20, fill="both", expand=True)
         self.imageview = None
+        self.label = None
         self.tk.mainloop()
 
     def open_file_dialog(self):
@@ -27,7 +28,7 @@ class Main:
     def display_image(self, photo):
         try:
             pil_image = Image.fromarray(photo)
-            max_size = (500, 500)
+            max_size = (500, 400)
             pil_image.thumbnail(max_size, Image.Resampling.LANCZOS)
             self.imageview = ImageTk.PhotoImage(pil_image)
             self.panel.image = self.imageview
@@ -35,6 +36,18 @@ class Main:
             self.panel.configure(image=self.imageview)
         except Exception as error:
             print(f"Error displaying image: {error}")
+
+
+    def display_label(self, detected_classes):
+        try:
+            if self.label is not None:
+                self.label.destroy()
+            label_text = "Erkannte Klassen: " + ", ".join(detected_classes)
+            print(label_text)
+            self.label = tkinter.Label(self.tk, text=label_text)
+            self.label.pack(padx=20, pady=10, anchor="center")
+        except Exception as error:
+            print(f"Error displaying label: {error}")
 
     def loading_yolo_model(self,path):
         if path is None:
@@ -44,7 +57,10 @@ class Main:
             model = YOLO("model/best.pt")
             result = model(path, conf=0.5)
             model_pred = result[0].plot()
+            #Set entfernt alle duplikaten Klassen, die erkannt wurden
+            detected_classes = set([result[0].names[int(box.cls[0])] for box in result[0].boxes])
             self.display_image(model_pred)
+            self.display_label(detected_classes)
         except Exception as error:
             print(f"Error loading YOLO model: {error}")
 
