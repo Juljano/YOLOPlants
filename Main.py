@@ -18,8 +18,12 @@ class Main:
         self.tk.mainloop()
 
     def open_file_dialog(self):
-        file_path = filedialog.askopenfilename(title="Select a image file",filetypes=[("Image file",".jpg")])
-        if file_path is not None:
+        file_path = filedialog.askopenfilename(title="Select a image file",filetypes=[
+            ("JPEG Files",".jpg"),
+            ("PNG Files","*.png"),
+            ("WebP Files","*.webp")
+        ])
+        if file_path:
             print(f"Selected file: {file_path}")
             self.loading_yolo_model(file_path)
             return file_path
