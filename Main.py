@@ -2,7 +2,9 @@ import tkinter
 from tkinter import Tk, filedialog
 from ultralytics import YOLO
 from PIL import Image, ImageTk
-
+"""
+@Juljano Mario Möller
+"""
 
 class Main:
     def __init__(self):
