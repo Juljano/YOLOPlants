@@ -1,6 +1,4 @@
-ultralytics
 pillow
 onnxruntime
-
 opencv-python
 numpy
