@@ -63,3 +63,4 @@ Test-images/
 dataset/val/labels.cache
 dataset/train/labels.cache
 yolov8n.pt
+runs/
