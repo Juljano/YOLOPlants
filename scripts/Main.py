@@ -22,7 +22,8 @@ class Main:
 
     def open_file_dialog(self):
         file_path = filedialog.askopenfilename(title="Select a image file",filetypes=[
-            ("JPEG Files",".jpg"),
+            ("JPG Files",".jpg"),
+            ("JPEG Files", ".jpeg"),
             ("PNG Files","*.png"),
             ("WebP Files","*.webp")
         ])
@@ -61,16 +62,16 @@ class Main:
             print("Path is required")
             return
         try:
-            detector = YOLODetector()
-            result = detector.detect(path)
+            result, classes = detector.detect(path)
             self.display_image(result)
-            self.display_label("Noch nicht vorhanden")
+            self.display_label(classes)
         except Exception as error:
             print(f"Error loading YOLO model: {error}")
 
 
 
 if __name__ == "__main__":
+    detector = YOLODetector()
     main = Main()
 
 

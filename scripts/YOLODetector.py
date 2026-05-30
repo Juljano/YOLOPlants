@@ -22,19 +22,19 @@ class YOLODetector:
         
         image = cv2.resize(image, (640, 640))
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        image = image.astype(np.float32) / 255.0
-        image = np.transpose(image, (2, 0, 1))
-        image = np.expand_dims(image, axis=0)
-        
+        image = image.astype(np.float32) / 255.0 # Pixelwert normaliseren
+        image = np.transpose(image, (2, 0, 1)) # HWC zu CHW -> Channel (RGB), Height, Width
+        image = np.expand_dims(image, axis=0) # Batch-Dimension = Anzahl der Bilder
+
         return image
     
     def infer(self, image_array):
-        """Führe Inferenz durch"""
         outputs = self.session.run(None, {self.input_name: image_array})
+        print(f"Inferenz abgeschlossen, Ausgabeform: {outputs[0].shape}")
+
         return outputs[0]
     
     def postprocess(self, pred):
-        """Verarbeite Vorhersagen und zeichne Ergebnisse"""
         # Tensor umformen
         pred = pred.squeeze(0)
         pred = pred.T
@@ -94,14 +94,13 @@ class YOLODetector:
                 (0, 255, 0),
                 2
             )
-        
-        return self.original_image
+        return self.original_image, set(classes)
     
     def detect(self, image_path):
-        """Kompletter Ablauf: Preprocess -> Infer -> Postprocess"""
         image = self.preprocess(image_path)
         pred = self.infer(image)
-        result = self.postprocess(pred)
-        return result
+        result, classes = self.postprocess(pred)
+        print(f"Klassen erkannt: {classes}")
+        return result, classes
 
 
