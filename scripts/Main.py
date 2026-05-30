@@ -50,8 +50,7 @@ class Main:
         try:
             if self.label is not None:
                 self.label.destroy()
-            label_text = "Erkannte Klassen: " + ", ".join(detected_classes)
-            print(label_text)
+            label_text = "Erkannte Klassen: " + detected_classes
             self.label = tkinter.Label(self.tk, text=label_text)
             self.label.pack(padx=20, pady=10, anchor="center")
         except Exception as error:
@@ -64,7 +63,10 @@ class Main:
         try:
             result, classes = detector.detect(path)
             self.display_image(result)
-            self.display_label(classes)
+            if 0 in classes: # Pflanze
+                self.display_label("Pflanze")
+            elif 1 in classes: # Blumentopf
+                self.display_label("Blumentopf")
         except Exception as error:
             print(f"Error loading YOLO model: {error}")
 

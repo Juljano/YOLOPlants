@@ -100,7 +100,6 @@ class YOLODetector:
         image = self.preprocess(image_path)
         pred = self.infer(image)
         result, classes = self.postprocess(pred)
-        print(f"Klassen erkannt: {classes}")
         return result, classes
 
 
