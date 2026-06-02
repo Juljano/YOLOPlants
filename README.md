@@ -37,4 +37,4 @@ Die folgende Tabelle zeigt die Ergebnisse des Trainingsprozesses:
 ---
 ### Beispielergebnis
 ### Hier ist ein Beispielbild, mit onnxruntime verarbeitet, um Pflanzen und Blumentöpfe zu erkennen:
-<img src="https://i.postimg.cc/7PzTs9fp/onnx-yolo-result.jpg" alt="Ein Foto von der Software" width="600" height=""/>
+<img src="https://i.postimg.cc/7PzTs9fp/onnx-yolo-result.jpg" alt="Ein Foto von der Software" width="400" height=""/>
