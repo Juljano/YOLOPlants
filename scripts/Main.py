@@ -15,7 +15,6 @@ class Main:
         self.panel = tkinter.Label(self.tk, bg="gray")
         self.panel.pack(padx=20, pady=20, fill="both", expand=True)
         self.imageview = None
-        self.label = None
         self.tk.mainloop()
 
     def open_file_dialog(self):
@@ -26,7 +25,6 @@ class Main:
             ("WebP Files","*.webp")
         ])
         if file_path:
-            print(f"Selected file: {file_path}")
             self.loading_yolo_model(file_path)
             return file_path
         return None
@@ -44,27 +42,13 @@ class Main:
             print(f"Error displaying image: {error}")
 
 
-    def display_label(self, detected_classes):
-        try:
-            if self.label is not None:
-                self.label.destroy()
-            label_text = "Erkannte Klassen: " + detected_classes
-            self.label = tkinter.Label(self.tk, text=label_text)
-            self.label.pack(padx=20, pady=10, anchor="center")
-        except Exception as error:
-            print(f"Error displaying label: {error}")
-
     def loading_yolo_model(self,path):
         if path is None:
             print("Path is required")
             return
         try:
-            result, classes = detector.detect(path)
+            result = detector.detect(path)
             self.display_image(result)
-            if 0 in classes: # Pflanze
-                self.display_label("Pflanze")
-            elif 1 in classes: # Blumentopf
-                self.display_label("Blumentopf")
         except Exception as error:
             print(f"Error loading YOLO model: {error}")
 

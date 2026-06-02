@@ -35,11 +35,6 @@ Die folgende Tabelle zeigt die Ergebnisse des Trainingsprozesses:
 | plant | 15     | 19        | 0.768         | 0.523      | 0.534 | 0.232    |
 | pot   | 36     | 65        | 0.877         | 0.547      | 0.691 | 0.304    |
 ---
-
-<img src="https://i.postimg.cc/J4j0HWwq/YOLOPlant.png" alt="Ein Foto von der Software" width="600" height=""/>
-
----
-
-### Hinweis
-- Die Erkennungsqualität hängt stark von den Trainingsdaten ab.
-- Bei schwierigen Lichtverhältnissen oder ungewöhnlichen Perspektiven kann die Genauigkeit variieren.
+### Beispielergebnis
+### Hier ist ein Beispielbild, mit onnxruntime verarbeitet, um Pflanzen und Blumentöpfe zu erkennen:
+<img src="https://i.postimg.cc/7PzTs9fp/onnx-yolo-result.jpg" alt="Ein Foto von der Software" width="600" height=""/>

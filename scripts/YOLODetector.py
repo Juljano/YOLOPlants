@@ -4,7 +4,7 @@ import onnxruntime as ort
 
 
 class YOLODetector:
-    def __init__(self, model_path="../model/best.onnx", conf_threshold=0.01, nms_threshold=0.01):
+    def __init__(self, model_path="../model/best.onnx", conf_threshold=0.5, nms_threshold=0.5):
         self.session = ort.InferenceSession(model_path)
         self.input_name = self.session.get_inputs()[0].name
         self.conf_threshold = conf_threshold
@@ -78,19 +78,11 @@ class YOLODetector:
         return image
     def infer(self, image_array):
         outputs = self.session.run(None, {self.input_name: image_array})
-        print(f"Inferenz abgeschlossen, Ausgabeform: {outputs[0].shape}")
 
         return outputs[0]
 
     def postprocess(self, pred):
-
-        # (1, 6, 8400) -> (8400, 6)
         pred = pred.squeeze(0).T
-
-        best_idx = np.argmax(pred[:, 5])
-
-        print("Beste pot-Detection:")
-        print(pred[best_idx])
 
         boxes = []
         scores = []
@@ -184,13 +176,12 @@ class YOLODetector:
                 2
             )
 
-        return self.original_image, set(classes)
+        return self.original_image
     
     def detect(self, image_path):
         image = self.preprocess(image_path)
         pred = self.infer(image)
-        result, classes = self.postprocess(pred)
-        cv2.imwrite("letterbox_debug.jpg", result)
-        return result, classes
+        result = self.postprocess(pred)
+        return result
 
 
