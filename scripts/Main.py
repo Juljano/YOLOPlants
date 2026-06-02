@@ -5,8 +5,6 @@ from YOLODetector import YOLODetector
 
 
 # @Juljano Mario Möller
-
-
 class Main:
     def __init__(self):
         self.tk = Tk()
@@ -22,7 +20,8 @@ class Main:
 
     def open_file_dialog(self):
         file_path = filedialog.askopenfilename(title="Select a image file",filetypes=[
-            ("JPEG Files",".jpg"),
+            ("JPG Files",".jpg"),
+            ("JPEG Files", ".jpeg"),
             ("PNG Files","*.png"),
             ("WebP Files","*.webp")
         ])
@@ -49,8 +48,7 @@ class Main:
         try:
             if self.label is not None:
                 self.label.destroy()
-            label_text = "Erkannte Klassen: " + ", ".join(detected_classes)
-            print(label_text)
+            label_text = "Erkannte Klassen: " + detected_classes
             self.label = tkinter.Label(self.tk, text=label_text)
             self.label.pack(padx=20, pady=10, anchor="center")
         except Exception as error:
@@ -61,16 +59,19 @@ class Main:
             print("Path is required")
             return
         try:
-            detector = YOLODetector()
-            result = detector.detect(path)
+            result, classes = detector.detect(path)
             self.display_image(result)
-            self.display_label("Noch nicht vorhanden")
+            if 0 in classes: # Pflanze
+                self.display_label("Pflanze")
+            elif 1 in classes: # Blumentopf
+                self.display_label("Blumentopf")
         except Exception as error:
             print(f"Error loading YOLO model: {error}")
 
 
 
 if __name__ == "__main__":
+    detector = YOLODetector()
     main = Main()
 
 
