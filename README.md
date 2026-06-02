@@ -23,6 +23,7 @@ Das Skript verwendet ein von mir trainiertes YOLO-Modell, um Pflanzen und Blumen
 
 In der GUI können Sie eigene Bilder laden.
 Das Modell analysiert diese Bilder und markiert erkannte Pflanzen und Blumentöpfe mit Bounding Boxes.
+Es wird zusätzlich auch im GUI die erkannten Klassen angezeigt
 
 ---
 ### Ergebnisse vom Training
@@ -37,5 +38,3 @@ Die folgende Tabelle zeigt die Ergebnisse des Trainingsprozesses:
 ### Beispielergebnis
 ### Hier ist ein Beispielbild, mit onnxruntime verarbeitet, um Pflanzen und Blumentöpfe zu erkennen:
 <img src="https://i.postimg.cc/7PzTs9fp/onnx-yolo-result.jpg" alt="Ein Foto von der Software" width="600" height=""/>
-
----
