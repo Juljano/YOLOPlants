@@ -5,8 +5,6 @@ from YOLODetector import YOLODetector
 
 
 # @Juljano Mario Möller
-
-
 class Main:
     def __init__(self):
         self.tk = Tk()
